@@ -1,0 +1,660 @@
+/* Fontes utilizadas nos títulos e textos do Figma. */
+@import url('https://fonts.googleapis.com/css2?family=Marhey:wght@300;400;500;600&family=Marvel:wght@400;700&display=swap');
+
+/* ==========================================================
+   1. CONFIGURAÇÕES GERAIS
+   ========================================================== */
+:root {
+    --cinza-fundo: #6B7280;
+    --cinza-faixa: #D9D9D9;
+    --fundo-card: #20212B;
+    --vermelho-marvel: #E62429;
+    --amarelo-hqs: #F5C542;
+    --branco: #F5F5F5;
+    --texto-card: #C7C9D3;
+    --preto: #141414;
+    --largura-maxima: 1440px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--cinza-fundo);
+    color: var(--preto);
+    font-family: 'Marvel', Arial, sans-serif;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+summary {
+    font: inherit;
+}
+
+h1, h2, h3, h4, .botao, .links-menu {
+    font-family: 'Marhey', 'Trebuchet MS', sans-serif;
+}
+
+/* ==========================================================
+   2. PRIMEIRA TELA — IMAGEM E MENU
+   ========================================================== */
+.inicio {
+    min-height: max(740px, 100svh);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 0 0 40px 40px;
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(20, 20, 20, 0.90) 0%,
+            rgba(20, 20, 20, 0.65) 50%,
+            rgba(20, 20, 20, 0.30) 100%
+        ),
+        url('../assets/marvel-vingadores-capa.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--branco);
+}
+
+.menu {
+    width: min(100%, var(--largura-maxima));
+    margin: 0 auto;
+    padding: 23px 5.55%;
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 3.3vw, 48px);
+}
+
+.link-logo {
+    display: block;
+    flex: none;
+}
+
+.logo {
+    width: 193px;
+    height: 86px;
+    object-fit: contain;
+}
+
+.links-menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(12px, 2.1vw, 30px);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.links-menu a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: clamp(18px, 2.2vw, 32px);
+    font-weight: 300;
+    white-space: nowrap;
+}
+
+.links-menu a:hover,
+.links-menu a:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 8px;
+}
+
+.apresentacao {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 65px 20px 140px;
+}
+
+.apresentacao h1 {
+    max-width: 640px;
+    margin: 0;
+    font-size: clamp(42px, 5vw, 72px);
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.apresentacao h1 span {
+    display: block;
+}
+
+.subtitulo {
+    margin: 28px 0 54px;
+    font-family: 'Marhey', sans-serif;
+    font-size: clamp(16px, 1.7vw, 24px);
+    font-weight: 300;
+}
+
+/* ==========================================================
+   3. BOTÕES
+   ========================================================== */
+.botao {
+    min-height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 28px;
+    border: 0;
+    border-radius: 15px;
+    background: var(--vermelho-marvel);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    color: white;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.botao:hover {
+    background: #C41B20;
+    transform: translateY(-2px);
+}
+
+.botao:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+}
+
+.botao-principal {
+    width: min(410px, 100%);
+    min-height: 62px;
+}
+
+/* ==========================================================
+   4. TÍTULOS E ESTRUTURA DAS SEÇÕES
+   ========================================================== */
+.secao {
+    width: min(100%, var(--largura-maxima));
+    margin-inline: auto;
+    padding-top: 140px;
+}
+
+.titulo-secao {
+    width: min(628px, calc(100% - 40px));
+    min-height: 69px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 76px;
+    padding: 8px 22px;
+    border-radius: 40px;
+    background: var(--cinza-faixa);
+    color: black;
+    font-size: clamp(28px, 3.4vw, 48px);
+    line-height: 1.35;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* ==========================================================
+   5. HISTÓRIA DA MARVEL
+   ========================================================== */
+.historia-conteudo {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(340px, 1fr);
+    align-items: center;
+    column-gap: clamp(35px, 6vw, 86px);
+    padding-right: 5.55%;
+}
+
+.historia-imagem img {
+    width: 100%;
+    aspect-ratio: 873 / 518;
+    object-fit: cover;
+    border: 2px solid black;
+    border-left: 0;
+    border-radius: 0 40px 40px 0;
+}
+
+.historia-texto h3 {
+    margin: 0 0 30px;
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.historia-texto p {
+    font-size: 18px;
+    line-height: 1.35;
+    margin: 0 0 24px;
+}
+
+.botao-historia {
+    width: 100%;
+    list-style: none;
+}
+
+.botao-historia::-webkit-details-marker {
+    display: none;
+}
+
+.historia-expandida {
+    margin-top: 22px;
+    padding: 18px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.20);
+}
+
+/* ==========================================================
+   6. CARDS DOS PERSONAGENS
+   ========================================================== */
+.secao-personagens {
+    padding-top: 130px;
+}
+
+.grade-personagens {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 0 5.55%;
+}
+
+.card-personagem {
+    min-height: 629px;
+    overflow: hidden;
+    border: 2px solid black;
+    border-radius: 25px;
+    background: var(--fundo-card);
+    color: var(--branco);
+}
+
+.imagem-personagem {
+    width: 100%;
+    height: 295px;
+    object-fit: cover;
+    object-position: center;
+    border-bottom: 2px solid black;
+    border-radius: 24px 24px 30px 30px;
+}
+
+.conteudo-card {
+    padding-top: 27px;
+}
+
+.linha-personagem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.linha-personagem h3 {
+    margin: 0;
+    padding-left: 15px;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+/* A etiqueta amarela encosta na borda direita, como no Figma. */
+.etiqueta-hqs {
+    flex: none;
+    padding: 2px 9px 2px 13px;
+    border-radius: 15px 0 0 15px;
+    background: var(--amarelo-hqs);
+    color: var(--preto);
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.quantidade-series {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 40px 15px 42px;
+    color: var(--texto-card);
+    font-size: 16px;
+}
+
+.quantidade-series span {
+    font-size: 30px;
+}
+
+.conteudo-card h4 {
+    margin: 0 0 19px;
+    color: var(--texto-card);
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.descricao-personagem {
+    max-width: 300px;
+    margin: 0 auto 26px;
+    padding: 0 12px;
+    color: var(--texto-card);
+    font-size: 16px;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.botao-ver-mais {
+    width: min(410px, calc(100% - 40px));
+    display: flex;
+    margin: 160px auto 0;
+}
+
+/* ==========================================================
+   7. HISTÓRIAS EM QUADRINHOS
+   ========================================================== */
+.secao-quadrinhos {
+    padding-top: 135px;
+}
+
+.lista-quadrinhos {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.hq {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 80px;
+    padding: 0 20px;
+}
+
+.hq-informacoes {
+    width: min(459px, 100%);
+    min-height: 416px;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    padding: 23px 25px;
+    border-radius: 40px;
+    background: var(--fundo-card);
+    color: var(--branco);
+}
+
+.hq-informacoes h3 {
+    margin: 0 0 18px;
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.hq-dados {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.hq-dados p,
+.hq-paginas {
+    margin: 0;
+    font: 300 24px 'Marhey', sans-serif;
+}
+
+.etiqueta-dado {
+    display: inline-block;
+    min-width: 70px;
+    padding: 0 14px;
+    border-radius: 15px;
+    background: var(--vermelho-marvel);
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+.hq-descricao {
+    margin: 16px 0 35px;
+    font-size: 18px;
+    line-height: 1.25;
+}
+
+.hq-paginas {
+    margin-top: auto;
+}
+
+.hq-imagem {
+    display: flex;
+    justify-content: center;
+}
+
+.hq-imagem img {
+    width: min(557px, 100%);
+    aspect-ratio: 557 / 817;
+    object-fit: cover;
+    border: 2px solid black;
+    border-radius: 40px;
+}
+
+.secao-quadrinhos > .botao-ver-mais {
+    margin-top: 160px;
+    margin-bottom: 135px;
+}
+
+/* ==========================================================
+   8. RODAPÉ
+   ========================================================== */
+.rodape {
+    min-height: 122px;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    border-radius: 40px 40px 0 0;
+    background: var(--preto);
+    color: var(--branco);
+    text-align: center;
+}
+
+.rodape p {
+    margin: 0;
+    font: 300 32px 'Marhey', sans-serif;
+}
+
+/* ==========================================================
+   9. AJUSTES PARA TABLETS E CELULARES
+   ========================================================== */
+@media (max-width: 1100px) {
+    .menu {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .links-menu {
+        justify-content: center;
+    }
+
+    .grade-personagens {
+        gap: 15px;
+        margin: 0 3%;
+    }
+
+    .card-personagem {
+        min-height: 620px;
+    }
+
+    .linha-personagem h3 {
+        font-size: 21px;
+    }
+
+    .hq {
+        gap: 35px;
+    }
+}
+
+@media (max-width: 760px) {
+    .inicio {
+        min-height: 720px;
+    }
+
+    .menu {
+        padding: 20px;
+    }
+
+    .logo {
+        width: 150px;
+        height: auto;
+    }
+
+    .links-menu a {
+        font-size: 16px;
+    }
+
+    .apresentacao {
+        padding: 60px 18px 90px;
+    }
+
+    .apresentacao h1 {
+        line-height: 1.35;
+    }
+
+    .secao {
+        padding-top: 80px;
+    }
+
+    .titulo-secao {
+        margin-bottom: 40px;
+    }
+
+    .historia-conteudo {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 18px;
+    }
+
+    .historia-imagem img {
+        border: 2px solid black;
+        border-radius: 30px;
+    }
+
+    .historia-texto h3 {
+        font-size: 28px;
+    }
+
+    .grade-personagens {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+        padding: 0 15px;
+        gap: 22px;
+    }
+
+    .card-personagem {
+        min-height: 580px;
+    }
+
+    .botao-ver-mais {
+        margin-top: 55px;
+    }
+
+    .hq {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 18px;
+    }
+
+    .hq-imagem-esquerda .hq-imagem {
+        order: 2;
+    }
+
+    .hq-imagem-esquerda .hq-informacoes {
+        order: 1;
+    }
+
+    .hq-informacoes {
+        min-height: 360px;
+    }
+
+    .lista-quadrinhos {
+        gap: 80px;
+    }
+
+    .secao-quadrinhos > .botao-ver-mais {
+        margin-top: 70px;
+        margin-bottom: 80px;
+    }
+
+    .rodape p {
+        font-size: 22px;
+    }
+}
+
+/* ==========================================================
+   10. Ajustes para conteúdo vindo diretamente das APIs
+   ========================================================== */
+.card-personagem {
+    height: auto;
+}
+
+.card-personagem .quantidade-series {
+    display: block;
+    margin-top: 28px;
+    margin-bottom: 28px;
+    overflow-wrap: anywhere;
+}
+
+.card-personagem .descricao-personagem,
+.hq .hq-descricao {
+    overflow-wrap: anywhere;
+}
+
+.status-api {
+    color: #F5F5F5;
+    text-align: center;
+    margin: 12px auto;
+    max-width: 90%;
+    font-size: 16px;
+}
+.status-api:empty { display: none; }
+
+/* ==========================================================
+   11. CORREÇÕES: NAVEGAÇÃO, IMAGEM E DADOS DAS APIS
+   ========================================================== */
+@media (min-width: 1101px) {
+    .menu { gap: 26px; }
+    .links-menu {
+        flex: 1;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 12px;
+        min-width: 0;
+    }
+    .links-menu a {
+        font-size: clamp(17px, 1.45vw, 23px);
+        white-space: nowrap;
+    }
+}
+
+/* A foto vertical do Homem-Aranha fica inteira no card. */
+.card-personagem[data-personagem-id="620"] .imagem-personagem {
+    object-fit: contain;
+    object-position: center center;
+    background: #14151D;
+}
+
+.hq-dados { column-gap: 12px; row-gap: 8px; }
+.hq .etiqueta-dado { min-width: 50px; }
+.hq .hq-descricao { overflow-wrap: anywhere; }
+
+@media (min-width: 761px) {
+    .card-personagem .descricao-personagem {
+        display: -webkit-box;
+        -webkit-line-clamp: 7;
+        line-clamp: 7;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projeto acadêmico sobre a história, os personagens e os quadrinhos da Marvel.">
+    <title>Universo Marvel</title>
+
+    <!-- O visual do Figma será reproduzido neste arquivo CSS. -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- 1. INÍCIO: menu, imagem de fundo, título e botão -->
+    <header class="inicio" id="inicio">
+
+        <nav class="menu" aria-label="Menu principal">
+            <a class="link-logo" href="#inicio" aria-label="Ir para o início">
+                <img class="logo" src="assets/logo-marvel-oficial.png" alt="Marvel">
+            </a>
+
+            <ul class="links-menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#historia">História da Marvel</a></li>
+                <li><a href="#personagens">Personagens</a></li>
+                <li><a href="#quadrinhos">História em quadrinhos</a></li>
+            </ul>
+        </nav>
+
+        <div class="apresentacao">
+            <h1>Bem-vindo à <span>Marvel</span></h1>
+            <p class="subtitulo">Explore o universo dos heróis e quadrinhos.</p>
+            <a class="botao botao-principal" href="#historia">História da Marvel</a>
+        </div>
+
+    </header>
+
+    <main>
+
+        <!-- 2. HISTÓRIA DA MARVEL -->
+        <section class="secao secao-historia" id="historia" aria-labelledby="titulo-historia">
+            <h2 class="titulo-secao" id="titulo-historia">História da Marvel</h2>
+
+            <div class="historia-conteudo">
+                <div class="historia-imagem">
+                    <img
+                        src="assets/marvel-origens-1939.jpg"
+                        alt="Montagem com a capa da revista Marvel Comics número 1, de 1939, e quadrinhos clássicos"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="historia-texto">
+                    <h3>As origens da Marvel</h3>
+
+                    <p>
+                        A Marvel começou sua trajetória em 1939, quando a Timely Comics
+                        lançou Marvel Comics nº 1, apresentando personagens como o
+                        Tocha Humana original e Namor. Na década de 1960, a editora
+                        iniciou uma nova fase com o Quarteto Fantástico, o Homem-Aranha
+                        e outros heróis que conquistaram gerações.
+                    </p>
+
+                    <details class="historia-completa">
+                        <summary class="botao botao-historia">Ler história completa ↓</summary>
+                        <div class="historia-expandida">
+                            <p>
+                                A editora passou por diferentes nomes, como Timely Comics e
+                                Atlas Comics, antes da consolidação da marca Marvel.
+                                As histórias de Stan Lee, Jack Kirby, Steve Ditko e muitos
+                                outros criadores ajudaram a popularizar personagens com
+                                problemas cotidianos, conflitos e personalidades marcantes.
+                            </p>
+                            <p>
+                                Ao longo das décadas, seus universos se expandiram por meio
+                                de revistas, séries, filmes e jogos, mantendo as histórias
+                                em quadrinhos como parte fundamental dessa trajetória.
+                            </p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. PERSONAGENS: cards dinâmicos gerados a partir da API -->
+        <section class="secao secao-personagens" id="personagens" aria-labelledby="titulo-personagens">
+            <h2 class="titulo-secao" id="titulo-personagens">Personagens</h2>
+
+            <div class="grade-personagens" id="lista-personagens"></div>
+            <p class="status-api" id="status-personagens" role="status" aria-live="polite"></p>
+
+            <!-- Modelo oculto: JS cria os cards e preenche somente com a API. -->
+            <template id="modelo-personagem">
+                <article class="card-personagem">
+                    <img class="imagem-personagem" alt="Imagem de personagem" loading="lazy">
+                    <div class="conteudo-card">
+                        <div class="linha-personagem">
+                            <h3></h3>
+                            <span class="etiqueta-hqs"></span>
+                        </div>
+                        <p class="quantidade-series"></p>
+                        <h4>Informações</h4>
+                        <p class="descricao-personagem"></p>
+                    </div>
+                </article>
+            </template>
+
+            <!-- Exibe novos personagens via API. -->
+            <button class="botao botao-ver-mais" id="ver-mais-personagens" type="button">
+                Ver mais personagens
+            </button>
+        </section>
+
+        <!-- 4. HISTÓRIA EM QUADRINHOS: linhas alternadas geradas a partir da API -->
+        <section class="secao secao-quadrinhos" id="quadrinhos" aria-labelledby="titulo-quadrinhos">
+            <h2 class="titulo-secao" id="titulo-quadrinhos">História em quadrinhos</h2>
+
+            <div class="lista-quadrinhos" id="lista-quadrinhos"></div>
+            <p class="status-api" id="status-quadrinhos" role="status" aria-live="polite"></p>
+
+            <!-- Modelos alternados de HQ: dados vêm da API. -->
+            <template id="modelo-hq-texto">
+                <article class="hq hq-texto-esquerda">
+                    <div class="hq-informacoes">
+                        <h3></h3>
+                        <div class="hq-dados">
+                            <p>Edição: <span class="etiqueta-dado"></span></p>
+                            <p>Ano: <span class="etiqueta-dado"></span></p>
+                        </div>
+                        <p class="hq-descricao"></p>
+                        <p class="hq-paginas">Páginas: <span class="etiqueta-dado"></span></p>
+                    </div>
+                    <div class="hq-imagem"><img alt="Capa de HQ" loading="lazy"></div>
+                </article>
+            </template>
+            <template id="modelo-hq-imagem">
+                <article class="hq hq-imagem-esquerda">
+                    <div class="hq-imagem"><img alt="Capa de HQ" loading="lazy"></div>
+                    <div class="hq-informacoes">
+                        <h3></h3>
+                        <div class="hq-dados">
+                            <p>Edição: <span class="etiqueta-dado"></span></p>
+                            <p>Ano: <span class="etiqueta-dado"></span></p>
+                        </div>
+                        <p class="hq-descricao"></p>
+                        <p class="hq-paginas">Páginas: <span class="etiqueta-dado"></span></p>
+                    </div>
+                </article>
+            </template>
+
+            <!-- Exibe novas HQs via API. -->
+            <button class="botao botao-ver-mais" id="ver-mais-quadrinhos" type="button">
+                Ver mais quadrinhos
+            </button>
+        </section>
+
+    </main>
+
+    <!-- 5. RODAPÉ -->
+    <footer class="rodape">
+        <p>Projeto acadêmico • Universo Marvel</p>
+    </footer>
+
+    <!-- Integração com as APIs e criação dinâmica dos cards. -->
+    <script src="js/app.js" defer></script>
+
+</body>
+</html>
